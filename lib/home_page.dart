@@ -62,11 +62,19 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(myBox.getAt(index).toString()),
+                    trailing: IconButton(
+                      onPressed: () {
+                        myBox.deleteAt(index);
+                        print("box value : ${myBox.values}");
+                        setState(() {});
+                      },
+                      icon: Icon(Icons.delete),
+                    ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 30),
                     child: const Divider(
                       color: Colors.black,
                       height: 1,
